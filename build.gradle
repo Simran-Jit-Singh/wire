@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group = 'wire-qa-challenge'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(16))
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'junit', name: 'junit', version: '4.13.2'
+    implementation 'org.codehaus.groovy:groovy-all:2.3.11'
+    implementation 'io.cucumber:cucumber-java:7.14.0'
+    implementation 'io.cucumber:cucumber-junit:7.14.0'
+    implementation 'io.appium:java-client:8.3.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
+    implementation 'org.json:json:20210307'
+}
+
+tasks.register("cucumber", JavaExec) {
+    def tag = project.findProperty("tag") ?: "@login"
+    def deviceName = System.getProperty("deviceName", "iPhone_14")
+
+    dependsOn assemble, classes
+
+    mainClass.set("io.cucumber.core.cli.Main")
+    classpath = sourceSets.main.runtimeClasspath + sourceSets.test.runtimeClasspath
+    systemProperty "deviceName", deviceName
+    args = ['-p', 'pretty', '-p', 'html:report', '--glue', 'com.wire', 'src/test/resources', '--tags', tag]
+}

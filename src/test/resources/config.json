@@ -1,0 +1,16 @@
+{
+  "iPhone_14": {
+    "platformName": "iOS",
+    "deviceName": "iPhone 16 Pro",
+    "platformVersion": "18.3.0",
+    "automationName": "XCUITest",
+    "udid": "BC1C36FB-FF7B-4DF1-A743-78CFEA4087F0"
+  },
+  "iPad_Pro": {
+    "platformName": "iOS",
+    "deviceName": "iPhone 16 Plus",
+    "platformVersion": "18.3",
+    "automationName": "XCUITest",
+    "udid": "9F73BF82-000E-458A-9D3B-0E35D90E4D0C"
+  }
+}

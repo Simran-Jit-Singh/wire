@@ -1,0 +1,19 @@
+# intellij file
+.idea
+.idea/*
+
+#gradle files
+.gradle
+.gradle/*
+
+build
+build/classes
+build/generated
+build/tmp
+
+# cukes report
+report
+report/*
+
+.DS_Store
+.DS_Store/*
