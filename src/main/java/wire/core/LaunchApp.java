@@ -50,7 +50,7 @@ public class LaunchApp {
             caps.setCapability(key, deviceConfig.getString(key));
         }
 
-        String appPath = System.getProperty("user.dir") + "/qa-code-challenge/app/Wire.ipa";
+        String appPath = System.getProperty("user.dir") + "/artifacts/app/wire.ipa";
         caps.setCapability("app", appPath);
 
         return caps;
